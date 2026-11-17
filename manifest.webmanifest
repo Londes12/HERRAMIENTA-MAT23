@@ -1,0 +1,19 @@
+{
+  "name": "INGENIUM · Asistente de Ingeniería",
+  "short_name": "INGENIUM",
+  "description": "Resolvedor paso a paso de derivadas, integrales, límites y ecuaciones; cálculo numérico, física, química y programación para Ingeniería Mecánica.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#312e81",
+  "theme_color": "#312e81",
+  "lang": "es",
+  "categories": ["education", "productivity"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

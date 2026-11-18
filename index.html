@@ -441,6 +441,54 @@ mark { background: color-mix(in srgb, var(--pri) 22%, transparent); color: inher
 .pseg { display: flex; width: 100%; }
 .pseg button { flex: 1; }
 @media (prefers-reduced-motion: reduce) { .pcam, .pprog i.ind { animation: none; } }
+.anf { margin-bottom: 12px; } .anf > b { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+.anf i, .anleg i { display: inline-block; width: 11px; height: 11px; border-radius: 50%; flex: none; }
+.anf .tbl td { white-space: normal; } .anf .tbl td:first-child { color: var(--muted); font-weight: 700; width: 38%; }
+.anx { margin: 6px 0; font-size: 14px; } .anleg { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--muted); margin-top: 8px; } .anleg span { display: inline-flex; align-items: center; gap: 5px; }
+.sgn td, .sgn th { text-align: center; } .sgn .sp { color: var(--ok); font-size: 17px; } .sgn .sn { color: var(--err); font-size: 17px; } .sgn tr.tot td { background: var(--card2); }
+
+/* ============ Acciones, cuaderno, tutor, práctica ============ */
+.acts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; margin-top: 12px; }
+.acts button { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 9px 2px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); color: var(--ink); font-size: 18px; box-shadow: var(--shadow); }
+.acts button span { font-size: 11.5px; font-weight: 700; color: var(--muted); }
+.acts button:disabled { opacity: .5; }
+.tuhost:not(:empty) { margin-top: 12px; }
+.tutor { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 14px; box-shadow: var(--shadow); }
+.tu-h { font-weight: 800; font-size: 16px; margin-bottom: 8px; } .tu-h small { color: var(--muted); font-weight: 600; font-size: 12.5px; margin-left: 6px; }
+.tu-l { display: flex; flex-direction: column; gap: 8px; }
+.tu-m { max-width: 92%; padding: 10px 12px; border-radius: 16px; font-size: 14.5px; line-height: 1.5; }
+.tu-m.me { align-self: flex-end; background: linear-gradient(135deg, var(--pri), var(--pri2)); color: #fff; border-bottom-right-radius: 5px; }
+.tu-m.ai { align-self: flex-start; background: var(--card2); border: 1px solid var(--line); border-bottom-left-radius: 5px; }
+.tu-m.err { align-self: stretch; background: color-mix(in srgb, var(--err) 10%, var(--card)); color: var(--err); display: flex; flex-direction: column; gap: 8px; }
+.tu-q { display: flex; gap: 6px; overflow-x: auto; margin: 10px -14px 8px; padding: 0 14px; scrollbar-width: none; }
+.tu-q button { flex: none; padding: 7px 11px; border-radius: 20px; border: 1px solid var(--line); background: var(--card2); color: var(--ink); font-size: 12.5px; font-weight: 600; }
+.tu-in { display: flex; gap: 8px; align-items: flex-end; } .tu-in textarea { flex: 1; resize: none; min-height: 44px; } .tu-in .btn { padding: 0; width: 48px; height: 46px; flex: none; }
+.dots { display: inline-flex; gap: 4px; } .dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: dt 1s infinite; } .dots i:nth-child(2) { animation-delay: .15s; } .dots i:nth-child(3) { animation-delay: .3s; }
+@keyframes dt { 50% { opacity: .2; transform: translateY(-3px); } }
+.nbi { display: flex; gap: 8px; margin-bottom: 9px; }
+.nbo { flex: 1; min-width: 0; text-align: left; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 11px 13px; box-shadow: var(--shadow); color: var(--ink); display: flex; flex-direction: column; gap: 3px; }
+.nbo small { color: var(--muted); font-weight: 700; font-size: 12px; } .nbx { font-size: 15px; overflow: hidden; } .nbr { color: var(--ok); font-weight: 700; font-size: 14px; overflow: hidden; max-height: 3.2em; }
+.nbd { flex: none; width: 42px; border-radius: 14px; background: var(--card2); border: 1px solid var(--line); color: var(--muted); }
+.empty { text-align: center; color: var(--muted); padding: 34px 16px; background: var(--card); border: 1px dashed var(--line); border-radius: 18px; }
+.prs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 6px 0 12px; }
+.prs div { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 10px 6px; text-align: center; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+.prs b { font-size: 20px; } .prs small { color: var(--muted); font-size: 11.5px; font-weight: 700; }
+.pq-t { color: var(--muted); font-weight: 800; font-size: 13px; letter-spacing: .03em; text-transform: uppercase; }
+.pq-e { font-size: 22px; padding: 14px 4px 16px; text-align: center; overflow-x: auto; }
+#pR:not(:empty) { margin-top: 10px; }
+#printArea { display: none; }
+@media print {
+  body.printing > *:not(#printArea) { display: none !important; }
+  body.printing { background: #fff !important; }
+  body.printing #printArea { display: block; color: #000; font-size: 12.5pt; padding: 0 6mm; }
+  #printArea .pa-h { display: flex; justify-content: space-between; border-bottom: 2px solid #4f46e5; padding-bottom: 6px; margin-bottom: 10px; color: #312e81; }
+  #printArea .pa-in { font-size: 17pt; margin: 8px 0 12px; }
+  #printArea .pa-st { break-inside: avoid; margin: 0 0 8px; padding: 6px 8px; border-left: 3px solid #c7d2fe; }
+  #printArea .pa-st.d1 { margin-left: 14px; } #printArea .pa-st.d2, #printArea .pa-st.d3 { margin-left: 28px; }
+  #printArea .pa-w { font-weight: 700; } #printArea .pa-y { font-size: 10.5pt; color: #444; background: #fffbeb; padding: 4px 6px; margin-top: 4px; }
+  #printArea .pa-r { border: 2px solid #059669; border-radius: 8px; padding: 8px 10px; margin: 12px 0; font-size: 14pt; }
+  #printArea img { max-width: 100%; margin-top: 8px; } #printArea .pa-f { color: #888; font-size: 9pt; text-align: center; margin-top: 14px; }
+}
 </style>
 </head>
 <body>
@@ -590,7 +638,7 @@ function parse(str) {
   function primary() {
     const t = next();
     if (!t) throw new Error('La expresión está incompleta');
-    if (t.k === 'num') { const q = Q.of(parseFloat(t.v)); return q ? N(q) : N(new Q(Math.round(parseFloat(t.v)))); }
+    if (t.k === 'num') { const q = Q.of(parseFloat(t.v)); return q ? N(q) : N(Q.of(+parseFloat(t.v).toFixed(9)) || new Q(Math.round(parseFloat(t.v)))); }
     if (t.k === 'var') return V(t.v);
     if (t.k === 'const') return C(t.v);
     if (t.k === 'inf') return { t: 'inf', s: 1 };
@@ -1999,7 +2047,7 @@ function niceVal(v) {
   const q = niceQ(v); if (q && q.d <= 200) return H(N(q));
   // múltiplos de e, π, √
   const cands = [[Math.E, 'e'], [Math.PI, 'π'], [Math.SQRT2, '√2'], [Math.sqrt(3), '√3'], [Math.log(2), 'ln 2']];
-  for (const [c, s] of cands) { const r = niceQ(v / c); if (r && r.d <= 12 && Math.abs(r.n) <= 50) return (r.isOne() ? '' : H(N(r))) + s; }
+  for (const [c, s] of cands) { const r = niceQ(v / c); if (r && r.d <= 12 && Math.abs(r.n) <= 50) return (r.isOne() ? '' : r.eq(new Q(-1)) ? '−' : H(N(r))) + s; }
   return fmt(v, 8);
 }
 
@@ -2483,7 +2531,309 @@ function solveTaylor(str, x, aStr, n) {
   return { steps: S, input: `f(${x}) = ${H(f)}, &nbsp; a = ${H(aN)}, &nbsp; n = ${n}`, result: `P<sub>${n}</sub>(${x}) = ${H(P)}`, plot: { fns: [{ e: f, label: 'f' }, { e: P, label: 'P' + n }], x } };
 }
 
-G.CALC = { solveDerivative, solveIntegral, solveLimit, solveEquation, solveSystem, determinant, inverse, solveTaylor, derivQuiet, simpson, realRootsNum, matHTML, niceVal };
+/* =========================================================
+   ÁLGEBRA: factorizar, desarrollar, simplificar (paso a paso)
+   ========================================================= */
+function qSqrt(q) { // raíz exacta de un racional ≥ 0, o null
+  if (q.isNeg()) return null;
+  const a = Math.round(Math.sqrt(q.n)), b = Math.round(Math.sqrt(q.d));
+  return a * a === q.n && b * b === q.d ? new Q(a, b) : null;
+}
+function qCbrt(q) { const s = q.isNeg() ? -1 : 1, a = Math.round(Math.cbrt(Math.abs(q.n))), b = Math.round(Math.cbrt(q.d)); return a * a * a === Math.abs(q.n) && b * b * b === q.d ? new Q(s * a, b) : null; }
+function polyContent(p) { // p = k·(polinomio de coeficientes enteros primitivos, principal > 0)
+  let L = 1; p.forEach(q => { L = L / M.gcd(L, q.d) * q.d; });
+  const ints = p.map(q => q.mul(new Q(L)).n);
+  let g = 0; ints.forEach(v => { g = M.gcd(g, Math.abs(v)); }); if (!g) g = 1;
+  let k = new Q(g, L); if (p[p.length - 1].isNeg()) k = k.neg();
+  return { k, prim: p.map(q => q.div(k)) };
+}
+function linFromRoot(r) { return [new Q(-r.n), new Q(r.d)]; } // r = n/d → (d·x − n)
+function polyH(p, x) { return H(fromPoly(p, x)); }
+function factorH(k, fs, x) {
+  if (k.isOne() && fs.length === 1 && fs[0].m === 1) return polyH(fs[0].p, x);
+  const parts = fs.map(f => { const one = f.p.filter(c => !c.isZero()).length === 1; const s = one ? polyH(f.p, x) : '(' + polyH(f.p, x) + ')'; return f.m > 1 ? (one ? `${s}<sup>${f.m}</sup>` : `${s}<sup>${f.m}</sup>`) : s; });
+  const ks = k.isOne() ? '' : k.eq(new Q(-1)) ? '−' : (k.isInt() ? H(N(k)) : '(' + H(N(k)) + ')');
+  return ks + parts.join('') || '1';
+}
+function addFactor(fs, p) { const key = p.map(String).join(','); const f = fs.find(g => g.p.map(String).join(',') === key); if (f) f.m++; else fs.push({ p, m: 1 }); }
+/* factoriza el polinomio p (racionales). Devuelve {k, fs:[{p,m}]} y escribe pasos */
+function factorPoly(p, x, S, d) {
+  const fs = []; let k = ONE;
+  // 1) factor común (número y potencia de x)
+  let m = 0; while (m < p.length - 1 && p[m].isZero()) m++;
+  let q = p.slice(m);
+  const ct = polyContent(q); k = ct.k; q = ct.prim;
+  if (m > 0 || !k.isOne()) {
+    const cf = simplify(Mul([N(k), m ? (m === 1 ? V(x) : Pow(V(x), N(m))) : N(1)]));
+    step(S, d, 'Factor común', `${polyH(p, x)} = ${H(cf)}·(${polyH(q, x)})`,
+      `Buscamos lo que se repite en TODOS los términos: ${!k.isOne() ? `el número ${H(N(k))} (máximo común divisor de los coeficientes${k.isNeg() ? ', con signo − para que el primer término quede positivo' : ''})` : ''}${!k.isOne() && m ? ' y ' : ''}${m ? `la menor potencia de ${x}, ${H(m === 1 ? V(x) : Pow(V(x), N(m)))}` : ''}. Dividimos cada término entre ese factor común.`);
+    for (let i = 0; i < m; i++) addFactor(fs, [ZERO, ONE]);
+  }
+  factorRest(q, x, S, d, fs);
+  return { k, fs };
+}
+function factorRest(q, x, S, d, fs) {
+  const g = pdeg(q);
+  if (g <= 0) return;
+  if (g === 1) { addFactor(fs, q); return; }
+  if (g === 2) return factorQuad(q, x, S, d, fs);
+  // binomio de cubos: a x³ ± b
+  if (g === 3 && q[1].isZero() && q[2].isZero()) {
+    const A = qCbrt(q[3]), B = qCbrt(q[0]);
+    if (A && B) {
+      const sum = !B.isNeg(), Bb = B.abs();
+      const lin = [sum ? Bb : Bb.neg(), A], quad = [Bb.mul(Bb), sum ? A.mul(Bb).neg() : A.mul(Bb), A.mul(A)];
+      step(S, d, sum ? 'Suma de cubos' : 'Diferencia de cubos', `${polyH(q, x)} = (${polyH([ZERO, A], x)})³ ${sum ? '+' : '−'} (${H(N(Bb))})³ = (${polyH(lin, x)})(${polyH(quad, x)})`,
+        sum ? 'Fórmula: a³ + b³ = (a + b)(a² − ab + b²). El trinomio que queda no se factoriza más.' : 'Fórmula: a³ − b³ = (a − b)(a² + ab + b²). El trinomio que queda no se factoriza más.');
+      const c1 = polyContent(lin), c2 = polyContent(quad); addFactor(fs, c1.prim); addFactor(fs, c2.prim); return;
+    }
+  }
+  // bicuadrada: a x⁴ + b x² + c
+  if (g === 4 && q[1].isZero() && q[3].isZero()) {
+    const a = q[4], b = q[2], c = q[0], disc = b.mul(b).sub(new Q(4).mul(a).mul(c)), sd = qSqrt(disc);
+    if (sd) {
+      const r1 = b.neg().add(sd).div(a.mul(new Q(2))), r2 = b.neg().sub(sd).div(a.mul(new Q(2)));
+      const f1 = [r1.neg(), ZERO, ONE], f2 = [r2.neg(), ZERO, ONE];
+      step(S, d, 'Trinomio bicuadrado', `Con u = ${x}²: ${polyH([c, b, a], 'u')} = ${H(N(a)) === '1' ? '' : H(N(a))}(${polyH([r1.neg(), ONE], 'u')})(${polyH([r2.neg(), ONE], 'u')}) ⇒ ${polyH(q, x)} = ${H(N(a)) === '1' ? '' : H(N(a))}(${polyH(f1, x)})(${polyH(f2, x)})`,
+        `Sólo hay potencias pares de ${x}: cambiamos u = ${x}² y queda un trinomio de grado 2 en u. Sus raíces son u = ${H(N(r1))} y u = ${H(N(r2))}; luego regresamos a ${x}.`);
+      // a·(x²−r1)(x²−r2) con coeficientes enteros
+      const p1 = polyContent(f1), p2 = polyContent(f2);
+      factorRest(p1.prim, x, S, d + 1, fs); factorRest(p2.prim, x, S, d + 1, fs); return;
+    }
+  }
+  // Ruffini con raíces racionales
+  const ints = q.map(c => c.n); // q es primitivo (enteros)
+  const a0 = ints[0], an = ints[ints.length - 1];
+  const dv = (n) => { n = Math.abs(n); const r = []; for (let i = 1; i <= Math.min(n, 5000); i++) if (n % i === 0) r.push(i); return r; };
+  const P = dv(a0 || 1).slice(0, 24), Qd = dv(an).slice(0, 12);
+  const cand = []; P.forEach(pp => Qd.forEach(qq => [1, -1].forEach(s => { const r = new Q(s * pp, qq); if (!cand.some(c => c.eq(r))) cand.push(r); })));
+  const r = cand.find(c => pEval(q, c).isZero());
+  if (!r) {
+    step(S, d, 'Buscamos raíces racionales', `Posibles raíces: ±(divisores de ${Math.abs(a0)}) / (divisores de ${Math.abs(an)}) → ninguna hace cero al polinomio`, 'Por el teorema de las raíces racionales, si no hay raíz racional el polinomio no tiene factores lineales con coeficientes racionales.');
+    addFactor(fs, q); return;
+  }
+  const { q: qq } = pDiv(q, [r.neg(), ONE]);
+  step(S, d, `Ruffini con ${x} = ${H(N(r))}`, `P(${H(N(r))}) = 0 &nbsp;⇒&nbsp; (${polyH([r.neg(), ONE], x)}) es factor` + ruffiniTable(q, r) + `${polyH(q, x)} = (${polyH([r.neg(), ONE], x)})(${polyH(qq, x)})`,
+    `Probamos las posibles raíces ±(divisores de ${Math.abs(a0)})/(divisores de ${Math.abs(an)}). Con ${x} = ${H(N(r))} el polinomio da 0, así que (${polyH([r.neg(), ONE], x)}) es factor. La división sintética (Ruffini) da el otro factor: la última fila son sus coeficientes.`);
+  const lf = linFromRoot(r); addFactor(fs, lf);
+  const rest = pDiv(q, lf).q; // coeficientes ya enteros
+  const rc = polyContent(rest); // rc.k debería ser 1
+  factorRest(rc.prim, x, S, d, fs);
+}
+function factorQuad(q, x, S, d, fs) {
+  const a = q[2], b = q[1], c = q[0];
+  // diferencia de cuadrados
+  if (b.isZero() && c.isNeg()) {
+    const A = qSqrt(a), B = qSqrt(c.neg());
+    if (A && B) {
+      step(S, d, 'Diferencia de cuadrados', `${polyH(q, x)} = (${polyH([ZERO, A], x)})² − (${H(N(B))})² = (${polyH([B.neg(), A], x)})(${polyH([B, A], x)})`, 'Fórmula: a² − b² = (a − b)(a + b). Sacamos la raíz cuadrada de cada término.');
+      addFactor(fs, [B.neg(), A]); addFactor(fs, [B, A]); return;
+    }
+  }
+  const disc = b.mul(b).sub(new Q(4).mul(a).mul(c));
+  if (disc.isZero()) {
+    const A = qSqrt(a), C = qSqrt(c);
+    const r = b.neg().div(a.mul(new Q(2))), lf = linFromRoot(r);
+    step(S, d, 'Trinomio cuadrado perfecto', A && C ? `${polyH(q, x)} = (${polyH([ZERO, A], x)})² ${b.isNeg() ? '−' : '+'} 2·${polyH([ZERO, A], x)}·${H(N(C))} + (${H(N(C))})² = (${polyH(lf, x)})²` : `${polyH(q, x)} = (${polyH(lf, x)})²`,
+      'Fórmula: a² ± 2ab + b² = (a ± b)². Se reconoce porque el primer y el último término son cuadrados y el del medio es el doble de su producto (Δ = 0).');
+    addFactor(fs, lf); addFactor(fs, lf); return;
+  }
+  const sd = qSqrt(disc);
+  if (!sd) {
+    step(S, d, 'Trinomio sin factores racionales', `Δ = b² − 4ac = (${H(N(b), { inl: true })})² − 4(${H(N(a), { inl: true })})(${H(N(c), { inl: true })}) = ${H(N(disc))}`,
+      disc.isNeg() ? 'Δ < 0: no tiene raíces reales, así que no se puede factorizar con números reales (es irreducible).' : 'Δ no es un cuadrado perfecto: las raíces son irracionales, así que no se factoriza con coeficientes racionales.');
+    addFactor(fs, q); return;
+  }
+  const r1 = b.neg().add(sd).div(a.mul(new Q(2))), r2 = b.neg().sub(sd).div(a.mul(new Q(2)));
+  const l1 = linFromRoot(r1), l2 = linFromRoot(r2);
+  const ac = a.mul(c), PP = (z) => z.isNeg() ? '(' + H(N(z), { inl: true }) + ')' : H(N(z), { inl: true });
+  // dos números que multiplican a·c y suman b
+  const m1 = r1.neg().mul(a), m2 = r2.neg().mul(a);
+  if (a.isOne()) step(S, d, 'Trinomio x² + bx + c', `Buscamos dos números que multiplicados den ${H(N(c))} y sumados den ${H(N(b))}: &nbsp;<b>${H(N(m1))}</b> y <b>${H(N(m2))}</b> &nbsp;(${PP(m1)}·${PP(m2)} = ${H(N(c))}, &nbsp;${PP(m1)} + ${PP(m2)} = ${H(N(b))})<br>${polyH(q, x)} = (${polyH(l1, x)})(${polyH(l2, x)})`,
+    'Si x² + bx + c = (x + m)(x + n), al multiplicar queda x² + (m + n)x + m·n. Por eso m·n = c y m + n = b.');
+  else step(S, d, 'Trinomio ax² + bx + c (método del aspa / a·c)', `a·c = ${PP(a)}·${PP(c)} = ${H(N(ac))}. Dos números que multiplicados den ${H(N(ac))} y sumados ${H(N(b))}: <b>${H(N(m1))}</b> y <b>${H(N(m2))}</b><br>${polyH(q, x)} = ${[Mul([N(a), Pow(V(x), N(2))]), Mul([N(m1), V(x)]), Mul([N(m2), V(x)]), N(c)].map(simplify).map((t, i) => (i ? (M.isNegTerm(t) ? ' − ' + H(simplify(Neg(t))) : ' + ' + H(t)) : H(t))).join('')} = (${polyH(l1, x)})(${polyH(l2, x)})`,
+    'Se parte el término del medio con esos dos números y se factoriza por agrupación. Comprobación: al multiplicar los factores sale el trinomio original.');
+  addFactor(fs, l1); addFactor(fs, l2);
+}
+function expandSteps(u, x, S) { // desarrollar productos y potencias
+  const fs = u.t === 'mul' ? u.a : [u];
+  const polys = fs.map(f => { const [bb, e] = M.baseExp(f); const p = toPoly(bb, x); return p && e.t === 'num' && e.v.isInt() && !e.v.isNeg() ? { p, e: e.v.n, f } : null; });
+  if (polys.some(z => !z) || fs.length === 0) return null;
+  let acc = [ONE], accH = null;
+  for (const z of polys) {
+    let cur = z.p;
+    if (z.e > 1) {
+      if (z.e === 2 && z.p.filter(c => !c.isZero()).length === 2) {
+        const terms = []; for (let i = z.p.length - 1; i >= 0; i--) if (!z.p[i].isZero()) terms.push(fromPoly(z.p.map((c, j) => j === i ? c : ZERO), x));
+        const sq = pMul(z.p, z.p); const a = terms[0], b = terms[1];
+        step(S, 1, 'Binomio al cuadrado', `(${polyH(z.p, x)})² = (${H(a)})² + 2·(${H(a)})·(${H(b)}) + (${H(b)})² = ${polyH(sq, x)}`, 'Producto notable: (a + b)² = a² + 2ab + b². Cuidado: NO es a² + b².');
+        cur = sq;
+      } else {
+        let pw = z.p; for (let i = 1; i < z.e; i++) pw = pMul(pw, z.p);
+        step(S, 1, `Potencia ${z.e}`, `(${polyH(z.p, x)})<sup>${z.e}</sup> = ${polyH(pw, x)}`, z.e === 3 && z.p.filter(c => !c.isZero()).length === 2 ? 'Producto notable: (a + b)³ = a³ + 3a²b + 3ab² + b³.' : `Se multiplica el polinomio por sí mismo ${z.e} veces (o se usa el binomio de Newton).`);
+        cur = pw;
+      }
+    }
+    if (accH !== null) {
+      const prod = pMul(acc, cur);
+      const ta = []; for (let i = acc.length - 1; i >= 0; i--) if (!acc[i].isZero()) ta.push(fromPoly(acc.map((c, j) => j === i ? c : ZERO), x));
+      const tb = []; for (let i = cur.length - 1; i >= 0; i--) if (!cur[i].isZero()) tb.push(fromPoly(cur.map((c, j) => j === i ? c : ZERO), x));
+      const all = []; ta.forEach(a => tb.forEach(b => all.push(simplify(Mul([a, b])))));
+      step(S, 1, 'Propiedad distributiva', `(${polyH(acc, x)})(${polyH(cur, x)}) = ${all.map((t, i) => (i ? (M.isNegTerm(t) ? ' − ' + H(simplify(Neg(t))) : ' + ' + H(t)) : H(t))).join('')} = ${polyH(prod, x)}`,
+        `Cada término del primer paréntesis multiplica a cada término del segundo (${ta.length} × ${tb.length} = ${ta.length * tb.length} productos). Luego se suman los términos semejantes (mismo exponente).`);
+      acc = prod;
+    } else acc = cur;
+    accH = true;
+  }
+  return acc;
+}
+function solveAlgebra(str, x, op) {
+  x = x || 'x'; M.setMainVar(x); op = op || 'factor';
+  const raw = M.parse(str), u = simplify(raw), S = [];
+  const input = H(raw);
+  const { coef, nums, dens } = mulParts(u);
+  // expresión racional: simplificar fracción
+  if (dens.length && op !== 'expand') {
+    const Nn = simplify(Mul([N(coef), ...nums])), Dd = simplify(Mul(dens));
+    const pn = toPoly(Nn, x), pd = toPoly(Dd, x);
+    if (!pn || !pd) throw new Error('Por ahora la simplificación de fracciones es para polinomios');
+    step(S, 0, 'Fracción algebraica', `${fr(polyH(pn, x), polyH(pd, x))}`, 'Para simplificar una fracción algebraica se factorizan numerador y denominador y se cancelan los FACTORES comunes (nunca términos que se suman).');
+    step(S, 0, 'Factorizamos el numerador', polyH(pn, x), ''); const fn = factorPoly(pn, x, S, 1);
+    step(S, 0, 'Factorizamos el denominador', polyH(pd, x), ''); const fd = factorPoly(pd, x, S, 1);
+    const key = (p) => p.map(String).join(',');
+    const common = []; const nf = fn.fs.map(f => ({ ...f })), df = fd.fs.map(f => ({ ...f }));
+    nf.forEach(f => { const g = df.find(h => key(h.p) === key(f.p)); if (g) { const c = Math.min(f.m, g.m); common.push({ p: f.p, m: c }); f.m -= c; g.m -= c; } });
+    const restr = []; fd.fs.forEach(f => { if (pdeg(f.p) === 1) restr.push(f.p[0].neg().div(f.p[1])); });
+    const K = fn.k.div(fd.k);
+    const numR = nf.filter(f => f.m > 0), denR = df.filter(f => f.m > 0);
+    step(S, 0, 'Escribimos todo factorizado', fr(factorH(fn.k, fn.fs, x), factorH(fd.k, fd.fs, x)), 'Ahora se ven los factores que se repiten arriba y abajo.');
+    if (common.length) step(S, 0, 'Cancelamos factores comunes', `Se cancela ${common.map(f => '(' + polyH(f.p, x) + ')' + (f.m > 1 ? '<sup>' + f.m + '</sup>' : '')).join('·')}`, 'Un factor que multiplica arriba y abajo se divide entre sí mismo y da 1 (siempre que no valga 0).');
+    else step(S, 0, 'No hay factores comunes', 'La fracción ya está simplificada', 'Ningún factor del numerador aparece en el denominador.');
+    const resH = denR.length || !(K.isInt()) ? fr(factorH(K.isInt() ? K : new Q(K.n), numR, x), factorH(K.isInt() ? ONE : new Q(K.d), denR, x)) : factorH(K, numR, x);
+    if (restr.length) step(S, 0, 'Restricciones', `${x} ≠ ${restr.map(r => H(N(r))).join(', ')}`, 'Los valores que anulan el denominador ORIGINAL no están permitidos, aunque el factor se haya cancelado.');
+    return { steps: S, input, result: `${input} = ${resH}${restr.length ? ` &nbsp;<small>(${x} ≠ ${restr.map(r => H(N(r))).join(', ')})</small>` : ''}`, plot: { fns: [{ e: u, label: 'f(' + x + ')' }], x } };
+  }
+  const p = toPoly(u, x);
+  if (op === 'factor') {
+    if (!p) throw new Error('Para factorizar escribe un polinomio en ' + x + ' (por ejemplo x^3 - 6x^2 + 11x - 6)');
+    if (pdeg(p) < 1) throw new Error('Es una constante: no hay nada que factorizar');
+    step(S, 0, 'Polinomio a factorizar', `${polyH(p, x)} &nbsp;<small>(grado ${pdeg(p)})</small>`, 'Orden recomendado: 1) factor común, 2) productos notables (diferencia de cuadrados, trinomio cuadrado perfecto, cubos), 3) trinomios, 4) Ruffini para grado 3 o más.');
+    if (key(u) !== key(fromPoly(p, x))) step(S, 0, 'Ordenamos el polinomio', `${H(u)} = ${polyH(p, x)}`, 'Se desarrollan los productos y se ordenan los términos de mayor a menor exponente.');
+    const { k, fs } = factorPoly(p, x, S, 0);
+    // comprobación
+    let prod = [k]; fs.forEach(f => { for (let i = 0; i < f.m; i++) prod = pMul(prod, f.p); });
+    const ok = prod.length === p.length && prod.every((c, i) => c.eq(p[i]));
+    const res = factorH(k, fs, x);
+    step(S, 0, 'Resultado factorizado', `${polyH(p, x)} = ${res}`, ok ? 'Comprobación: al multiplicar todos los factores se obtiene el polinomio original ✓' : 'Revisa: la comprobación no coincidió.');
+    return { steps: S, input, result: `${polyH(p, x)} = ${res}`, ok, plot: { fns: [{ e: fromPoly(p, x), label: 'P(' + x + ')' }], x } };
+  }
+  if (op === 'expand') {
+    step(S, 0, 'Expresión a desarrollar', input, 'Desarrollar es quitar paréntesis multiplicando (propiedad distributiva y productos notables).');
+    let res = null;
+    if (u.t === 'add') { // desarrollar cada término
+      const parts = [];
+      for (const t of u.a) { const tmp = []; const r = expandSteps(simplify(t), x, tmp); if (r && tmp.length) { S.push(...tmp); parts.push(fromPoly(r, x)); } else parts.push(t); }
+      res = simplify(expand(Add(parts)));
+      step(S, 0, 'Sumamos términos semejantes', `${H(Add(parts))} = ${H(res)}`, 'Se suman los coeficientes de los términos que tienen la misma potencia de x.');
+    } else { const r = expandSteps(u, x, S); res = r ? fromPoly(r, x) : simplify(expand(u)); }
+    return { steps: S, input, result: `${input} = ${H(res)}`, plot: { fns: [{ e: u, label: 'f(' + x + ')' }], x } };
+  }
+  // simplificar
+  const ex = simplify(expand(u));
+  step(S, 0, 'Expresión', input, 'Simplificar: quitar paréntesis, agrupar términos semejantes y aplicar propiedades de potencias, raíces y logaritmos.');
+  if (key(ex) !== key(u)) step(S, 0, 'Quitamos paréntesis', `${H(u)} = ${H(ex)}`, 'Se aplica la propiedad distributiva donde haga falta.');
+  if (key(simplify(raw)) !== key(M.parse(str))) step(S, 0, 'Agrupamos términos semejantes', `${input} = ${H(u)}`, 'Se suman los términos con la misma parte literal (por ejemplo 3x² + 2x² = 5x²) y se aplican las leyes de los exponentes (xᵃ·xᵇ = xᵃ⁺ᵇ).');
+  const res = pdeg(p || [ZERO]) >= 0 && p ? fromPoly(p, x) : ex;
+  return { steps: S, input, result: `${input} = ${H(res)}`, plot: { fns: [{ e: u, label: 'f(' + x + ')' }], x } };
+}
+
+/* =========================================================
+   DESIGUALDADES (inecuaciones) con tabla de signos
+   ========================================================= */
+function solveInequality(str, x) {
+  x = x || 'x'; M.setMainVar(x);
+  const s0 = String(str).replace(/≤|=</g, '<=').replace(/≥|=>/g, '>=');
+  const m = /(<=|>=|<|>)/.exec(s0); if (!m) throw new Error('Escribe la desigualdad con <, >, ≤ (<=) o ≥ (>=)');
+  const op = m[1], [ls, rs] = [s0.slice(0, m.index), s0.slice(m.index + op.length)];
+  if (/[<>]/.test(rs)) throw new Error('Escribe una sola desigualdad (por ejemplo x^2 - 4 > 0)');
+  const L = simplify(M.parse(ls)), R = simplify(M.parse(rs)), S = [];
+  const opH = { '<': '&lt;', '>': '&gt;', '<=': '≤', '>=': '≥' }, flip = { '<': '>', '>': '<', '<=': '>=', '>=': '<=' };
+  const input = `${H(L)} ${opH[op]} ${H(R)}`;
+  let f = simplify(Sub(L, R));
+  const p = toPoly(f, x);
+  const iv = (a, b, ca, cb) => `${ca ? '[' : '('}${a === -Infinity ? '−∞' : niceVal(a)}, ${b === Infinity ? '+∞' : niceVal(b)}${cb ? ']' : ')'}`;
+  if (p && pdeg(p) === 1) { // lineal: despeje con cambio de sentido
+    const a = p[1], b = p[0];
+    step(S, 0, 'Desigualdad lineal', input, 'Se despeja x igual que en una ecuación, con UNA regla extra: si multiplicas o divides entre un número NEGATIVO, el signo de la desigualdad se invierte.');
+    step(S, 1, 'Pasamos todo a un lado y agrupamos', `${polyH(p, x)} ${opH[op]} 0 &nbsp;⇒&nbsp; ${H(simplify(Mul([N(a), V(x)])))} ${opH[op]} ${H(N(b.neg()))}`, 'Términos con x a un lado y números al otro (el que pasa, cambia de signo).');
+    const r = b.neg().div(a), op2 = a.isNeg() ? flip[op] : op;
+    step(S, 1, `Dividimos entre ${H(N(a))}`, `${x} ${opH[op2]} ${fr(H(N(b.neg())), H(N(a)))} = ${H(N(r))}`, a.isNeg() ? `⚠️ Dividimos entre ${H(N(a))}, que es NEGATIVO: el sentido de la desigualdad se INVIERTE (${opH[op]} pasa a ${opH[op2]}).` : `Dividimos entre ${H(N(a))}, que es positivo: el sentido no cambia.`);
+    const rv = r.val(), closed = op2.length === 2;
+    const res = op2[0] === '<' ? iv(-Infinity, rv, false, closed) : iv(rv, Infinity, closed, false);
+    step(S, 0, 'En notación de intervalo', `${x} ${opH[op2]} ${H(N(r))} &nbsp;⇔&nbsp; ${x} ∈ ${res}`, closed ? 'Corchete [ ] = el extremo SÍ se incluye (≤ o ≥).' : 'Paréntesis ( ) = el extremo NO se incluye (< o >). En ∞ siempre va paréntesis.');
+    return { steps: S, input, result: `${x} ∈ ${res}`, plot: { fns: [{ e: L, label: 'izquierda' }, { e: R, label: 'derecha' }], x, point: [rv, evalN(L, { [x]: rv })] } };
+  }
+  step(S, 0, 'Pasamos todo a un lado', `${H(f)} ${opH[op]} 0`, 'Comparar con cero es más fácil: sólo hay que saber dónde la expresión es positiva o negativa.');
+  const { coef, nums, dens } = mulParts(f);
+  const Nn = simplify(Mul([N(coef), ...nums])), Dd = dens.length ? simplify(Mul(dens)) : null;
+  const pn = toPoly(Nn, x), pd = Dd ? toPoly(Dd, x) : [ONE];
+  // factores para la tabla
+  let rows = [], crit = [];
+  const addRoots = (pp, isDen) => { // raíces reales (exactas si racionales)
+    const out = [];
+    const { roots, rest } = rationalRoots(pp);
+    roots.forEach(r => out.push({ v: r.val(), q: r, den: isDen }));
+    if (pdeg(rest) >= 1) realRootsNum(compileX(fromPoly(rest, x), x)).forEach(v => { if (!out.some(o => Math.abs(o.v - v) < 1e-9)) out.push({ v, den: isDen }); });
+    return out;
+  };
+  if (pn && pd) {
+    const fsN = factorPoly(pn, x, [], 0), fsD = Dd ? factorPoly(pd, x, [], 0) : { k: ONE, fs: [] };
+    const all = [...fsN.fs.map(f2 => ({ ...f2, den: false })), ...fsD.fs.map(f2 => ({ ...f2, den: true }))];
+    const K = fsN.k.div(fsD.k);
+    step(S, 0, 'Factorizamos', Dd ? fr(factorH(fsN.k, fsN.fs, x), factorH(fsD.k, fsD.fs, x)) + ` ${opH[op]} 0` : `${factorH(fsN.k, fsN.fs, x)} ${opH[op]} 0`, 'Con la expresión factorizada podemos ver el signo de cada factor por separado.');
+    crit = [...addRoots(pn, false), ...(Dd ? addRoots(pd, true) : [])];
+    rows = all.map(f2 => ({ lab: (pdeg(f2.p) === 1 && f2.p[0].isZero() && f2.p[1].isOne()) ? `<i>${x}</i>` : '(' + polyH(f2.p, x) + ')', m: f2.m, fn: (t) => Math.pow(f2.p.reduceRight((acc, c) => acc * t + c.val(), 0), f2.m) }));
+    if (!K.isOne()) rows.unshift({ lab: H(N(K)), m: 1, fn: () => K.val() });
+  } else {
+    // caso general: ceros de la expresión + ceros de todos los denominadores (donde no existe)
+    const dset = []; (f.t === 'add' ? f.a : [f]).forEach(t => mulParts(t).dens.forEach(dd => dset.push(dd)));
+    if (f.t === 'add' && dset.length) step(S, 1, 'Ojo con los denominadores', `No existe donde ${dset.map(dd => H(dd) + ' = 0').join(', ')}`, 'NO se multiplica por el denominador (su signo puede ser negativo y cambiaría el sentido). En lugar de eso, los ceros del denominador se agregan como puntos críticos.');
+    crit = [...realRootsNum(compileX(f, x)).map(v => ({ v, den: false })), ...dset.flatMap(dd => realRootsNum(compileX(dd, x)).map(v => ({ v, den: true })))];
+    crit.forEach(c => { const q = niceQ(c.v); if (q && q.d <= 50) c.q = q; });
+  }
+  crit = crit.filter((c, i) => !crit.some((d2, j) => j < i && Math.abs(d2.v - c.v) < 1e-9 && (d2.den || !c.den))).sort((a, b) => a.v - b.v);
+  // si una raíz del numerador también lo es del denominador, cuenta como del denominador (excluida)
+  crit = crit.filter((c, i, arr) => !(!c.den && arr.some(d2 => d2.den && Math.abs(d2.v - c.v) < 1e-9)));
+  step(S, 0, 'Puntos críticos', crit.length ? crit.map(c => `${x} = ${c.q ? H(N(c.q)) : niceVal(c.v)}${c.den ? ' <small>(anula el denominador: se excluye)</small>' : ''}`).join(', ') : 'La expresión nunca vale 0', 'Son los valores donde la expresión vale 0 (numerador = 0) o no existe (denominador = 0). Sólo ahí puede cambiar de signo. Dividen la recta en intervalos.');
+  const fx = compileX(f, x);
+  const pts = [-Infinity, ...crit.map(c => c.v), Infinity];
+  const tests = []; for (let i = 0; i < pts.length - 1; i++) { const a = pts[i], b = pts[i + 1]; tests.push(a === -Infinity ? (b === Infinity ? 0 : b - 1) : b === Infinity ? a + 1 : (a + b) / 2); }
+  const sg = (v) => v > 0 ? '<b class="sp">+</b>' : v < 0 ? '<b class="sn">−</b>' : '0';
+  const head = `<tr><th>${x}</th>${tests.map((t, i) => `<th>${iv(pts[i], pts[i + 1], false, false)}</th>`).join('')}</tr><tr><td><small>valor de prueba</small></td>${tests.map(t => `<td>${fmt(t, 4)}</td>`).join('')}</tr>`;
+  const body = rows.map(r => `<tr><td>${r.lab}${r.m > 1 ? '<sup>' + r.m + '</sup>' : ''}</td>${tests.map(t => `<td>${sg(r.fn(t))}</td>`).join('')}</tr>`).join('');
+  const last = `<tr class="tot"><td><b>Expresión</b></td>${tests.map(t => `<td>${sg(fx(t))}</td>`).join('')}</tr>`;
+  step(S, 0, 'Tabla de signos', `<div class="tblw"><table class="tbl sgn">${head}${body}${last}</table></div>`, 'En cada intervalo tomamos un valor de prueba y vemos el signo de cada factor. El signo de la expresión es el producto de los signos (− por − = +).');
+  const want = op[0] === '>' ? 1 : -1, closed = op.length === 2;
+  const parts = [];
+  tests.forEach((t, i) => { const v = fx(t); if (Math.sign(v) === want) parts.push([pts[i], pts[i + 1]]); });
+  // unir intervalos contiguos por un punto incluido
+  const res = [];
+  parts.forEach(([a, b]) => {
+    const inc = (v) => closed && isFinite(v) && !crit.find(c => Math.abs(c.v - v) < 1e-9 && c.den);
+    const prev = res[res.length - 1];
+    if (prev && Math.abs(prev.b - a) < 1e-12 && inc(a)) { prev.b = b; prev.cb = inc(b); }
+    else res.push({ a, b, ca: inc(a), cb: inc(b) });
+  });
+  // puntos aislados donde vale 0 (≤ o ≥) que no tocan intervalos
+  if (closed) crit.filter(c => !c.den).forEach(c => { if (!res.some(r => (r.a <= c.v + 1e-12 && c.v - 1e-12 <= r.b))) res.push({ a: c.v, b: c.v, ca: true, cb: true, pt: true }); });
+  res.sort((a, b) => a.a - b.a);
+  const resH = res.length ? res.map(r => r.pt ? `{${niceVal(r.a)}}` : (r.a === -Infinity && r.b === Infinity ? 'ℝ' : iv(r.a, r.b, r.ca, r.cb))).join(' ∪ ') : '∅ (no tiene solución)';
+  step(S, 0, 'Elegimos los intervalos', `Buscamos donde la expresión es ${want > 0 ? 'POSITIVA (+)' : 'NEGATIVA (−)'}${closed ? ' o CERO' : ''}: &nbsp;${x} ∈ ${resH}`,
+    `${closed ? 'Como es ≤ o ≥, se incluyen con corchete los puntos donde vale 0, pero NUNCA los que anulan el denominador.' : 'Como es < o >, los puntos críticos NO se incluyen (paréntesis).'} ∪ significa "unión" (o uno o el otro intervalo).`);
+  return { steps: S, input, result: `${x} ∈ ${resH}`, plot: { fns: [{ e: f, label: 'expresión' }], x, roots: crit.filter(c => !c.den).map(c => c.v) } };
+}
+
+G.CALC = { solveDerivative, solveIntegral, solveLimit, solveEquation, solveSystem, determinant, inverse, solveTaylor, derivQuiet, simpson, realRootsNum, matHTML, niceVal, solveAlgebra, solveInequality };
 })(typeof window !== 'undefined' ? window : globalThis);
 
 </script>
@@ -2882,6 +3232,7 @@ function Plot(container, spec) {
     });
     if (spec.dots) spec.dots.forEach(p => dot(c, X(p[0]), Y(p[1]), COLORS[1]));
     if (spec.roots) spec.roots.forEach(r => dot(c, X(r), Y(0), COLORS[2]));
+    if (spec.marks) spec.marks.forEach(m => { if (isFinite(m[1])) { dot(c, X(m[0]), Y(m[1]), m[2] || COLORS[1]); c.strokeStyle = css('--plot-bg'); c.lineWidth = 1.5; c.beginPath(); c.arc(X(m[0]), Y(m[1]), 4.5, 0, 7); c.stroke(); } });
     if (spec.point && spec.point[1] !== null) { c.fillStyle = css('--plot-bg'); c.strokeStyle = COLORS[1]; c.lineWidth = 2; c.beginPath(); c.arc(X(spec.point[0]), Y(spec.point[1]), 5, 0, 7); c.fill(); c.stroke(); }
     if (cursor) {
       c.strokeStyle = css('--muted'); c.setLineDash([4, 4]); c.beginPath(); c.moveTo(X(cursor), 0); c.lineTo(X(cursor), Hh); c.stroke(); c.setLineDash([]);
@@ -4289,7 +4640,7 @@ const OWNER = {
   email: '',                   // ← escribe aquí el correo de contacto cuando lo tengas
   country: 'la República Bolivariana de Venezuela',         // país (ley aplicable)
   app: 'INGENIUM',
-  version: '1.1.0',
+  version: '1.2.0',
   year: '2026',
   updated: '18 de noviembre de 2026',
   site: 'https://londes12.github.io/HERRAMIENTA-MAT23/'
@@ -4373,7 +4724,7 @@ const PRIVACY = `
 <ul>
 <li><b>Wikipedia (Fundación Wikimedia):</b> solo si usas la búsqueda en internet, el texto que buscas se envía a la API pública de Wikipedia, que, como cualquier sitio web, recibe tu dirección IP y datos técnicos del navegador. Se rige por la política de privacidad de la Fundación Wikimedia.</li>
 <li><b>Lector de fotos en el teléfono (Tesseract.js, descargado desde jsDelivr):</b> si usas “Resolver con foto” en modo “En el teléfono”, se descarga el programa lector desde cdn.jsdelivr.net (que, como cualquier sitio web, recibe tu dirección IP). La foto se procesa <b>dentro de tu teléfono</b> y no se envía a nadie.</li>
-<li><b>Lector de fotos con IA (Anthropic, PBC):</b> sólo si tú pones tu propia clave de API en Ajustes y pulsas “Leer ejercicio” en modo IA, la parte de la foto que marcaste se envía cifrada (HTTPS) a la API de Anthropic para transcribir el ejercicio, y se rige por las condiciones y la política de privacidad de Anthropic para su API. Tu clave se guarda sólo en tu teléfono; el Titular no la recibe. El uso se cobra en tu cuenta de Anthropic.</li>
+<li><b>Lector de fotos y Tutor con IA (Anthropic, PBC):</b> sólo si tú pones tu propia clave de API en Ajustes y pulsas “Leer ejercicio” en modo IA, la parte de la foto que marcaste se envía cifrada (HTTPS) a la API de Anthropic para transcribir el ejercicio; y si usas el “Tutor IA”, se envían el ejercicio resuelto y tus preguntas, y se rige por las condiciones y la política de privacidad de Anthropic para su API. Tu clave se guarda sólo en tu teléfono; el Titular no la recibe. El uso se cobra en tu cuenta de Anthropic.</li>
 <li><b>GitHub Pages (GitHub, Inc.):</b> la Aplicación se descarga y actualiza desde GitHub Pages, que puede registrar datos técnicos de acceso (como la dirección IP) con fines de seguridad y funcionamiento, según la política de privacidad de GitHub.</li>
 <li><b>Google Play:</b> si instalas la Aplicación desde Google Play, Google trata los datos de la descarga y, si aplica, del pago, según sus propias políticas. El Titular no recibe tus datos de pago.</li>
 </ul>
@@ -4755,7 +5106,8 @@ function setTitle(t, sub) { $('#tbTitle').innerHTML = esc(t) + (sub ? `<small>${
    INICIO
    ========================================================= */
 const QA = [['der', 'Derivar', 'ƒ′', ['#0ea5e9', '#2563eb']], ['int', 'Integrar', '∫', ['#14b8a6', '#0d9488']], ['lim', 'Límites', 'lím', ['#6366f1', '#7c3aed']], ['eq', 'Ecuación', 'x=', ['#ec4899', '#db2777']],
-  ['sys', 'Sistemas', '{ }', ['#f97316', '#ea580c']], ['mat', 'Matrices', '[A]', ['#a855f7', '#7c3aed']], ['taylor', 'Taylor', 'Σ', ['#22c55e', '#15803d']], ['graph', 'Graficar', '〰', ['#ef4444', '#b91c1c']]];
+  ['sys', 'Sistemas', '{ }', ['#f97316', '#ea580c']], ['mat', 'Matrices', '[A]', ['#a855f7', '#7c3aed']], ['taylor', 'Taylor', 'Σ', ['#22c55e', '#15803d']], ['graph', 'Graficar', '〰', ['#ef4444', '#b91c1c']],
+  ['alg', 'Factorizar', 'a·b', ['#0891b2', '#0e7490']], ['ineq', 'Desigualdad', 'x&gt;', ['#d946ef', '#a21caf']], ['practice', 'Practicar', '✓', ['#f59e0b', '#d97706']], ['notebook', 'Cuaderno', '⭐', ['#64748b', '#334155']]];
 const grad = (g) => `linear-gradient(135deg, ${g[0]}, ${g[1]})`;
 function greet() { const h = new Date().getHours(); return h < 12 ? 'Buenos días' : h < 19 ? 'Buenas tardes' : 'Buenas noches'; }
 const VIEWS = {};
@@ -4784,7 +5136,7 @@ VIEWS.home = (w) => {
     <div class="about">INGENIUM · Funciona sin internet · ${LIB.lessons.length} lecciones y fichas<br>© ${LG.OWNER.year} ${esc(LG.OWNER.name)} · <a href="#" data-legal="terms">Términos</a> · <a href="#" data-legal="privacy">Privacidad</a> · <a href="#" data-legal="about">Acerca de</a></div>
   </div>`;
   $('#hs', w).onclick = () => openSearch();
-  $$('.qa', w).forEach(b => b.onclick = () => b.dataset.m === 'graph' ? goTab('lab', { tool: 'graph' }) : goTab('solve', { mode: b.dataset.m }));
+  $$('.qa', w).forEach(b => b.onclick = () => b.dataset.m === 'graph' ? goTab('lab', { tool: 'graph' }) : ['practice', 'notebook'].includes(b.dataset.m) ? push(b.dataset.m) : goTab('solve', { mode: b.dataset.m }));
   $$('[data-lab]', w).forEach(b => b.onclick = () => goTab('lab', { tool: b.dataset.lab }));
   $('#hPh', w).onclick = () => push('photo'); $('#hCa', w).onclick = () => goTab('lab', { tool: 'calc' });
   $$('[data-num]', w).forEach(b => b.onclick = () => goTab('num'));
@@ -4962,6 +5314,8 @@ const MODES = {
   eq: { n: 'Ecuación', f: [['e', 'Ecuación', 'x^2-5x+6=0'], ['v', 'Incógnita', 'x', 's']], ex: ['2x+3=7', 'x^2-5x+6=0', '2x^2-3x-1=0', 'x^3-6x^2+11x-6=0', 'e^(2x)=7', 'sqrt(x+1)=4', '1/x+1/(x+1)=1', 'cos(x)=x'], hint: 'Usa el signo = . Resuelve lineales, cuadráticas, polinomios, exponenciales, logarítmicas y numéricas.' },
   sys: { n: 'Sistema', f: [['e', 'Ecuaciones (una por línea o separadas con ;)', '2x+3y=5\nx-y=1', 'ta']], ex: ['2x+3y=5; x-y=1', 'x+y+z=6; 2x-y+z=3; x+2y-z=2', 'a+b=12; 6b=24'], hint: 'Sistema lineal. Se resuelve por Gauss-Jordan mostrando cada operación de fila.' },
   mat: { n: 'Matriz', f: [['e', 'Matriz (filas separadas con ; o en líneas)', '1 2 3; 0 4 5; 1 0 6', 'ta'], ['op', 'Operación', 'det', 'op']], ex: ['2 1; 5 3', '1 2 3; 0 4 5; 1 0 6', '1 2 0 1; 2 1 1 0; 0 1 3 1; 1 0 1 2'], hint: 'Números separados por espacios; filas con punto y coma.' },
+  alg: { n: 'Álgebra', f: [['e', 'Expresión', 'x^3-6x^2+11x-6'], ['op', 'Operación', 'factor', 'alg']], ex: ['x^2-5x+6', '6x^3-9x^2', '4x^2-9', '2x^2-3x-2', 'x^3-6x^2+11x-6', 'x^4-16', '(x^2-9)/(x^2+x-6)', '(2x-1)(x+4)', '(x+3)^2'], hint: 'Factoriza (factor común, productos notables, trinomios, Ruffini), desarrolla productos o simplifica fracciones algebraicas.' },
+  ineq: { n: 'Desigualdad', f: [['e', 'Desigualdad', 'x^2-5x+6>0'], ['v', 'Variable', 'x', 's']], ex: ['2x-3>5', '-3x+1<=7', 'x^2-5x+6>0', 'x^2-4<=0', '(x-1)/(x+2)>=0', 'x^3-x<0', '(x+1)/(x-3)<2'], hint: 'Usa <, >, <= (≤) o >= (≥). Se resuelve con puntos críticos y tabla de signos; el resultado sale en intervalos.' },
   taylor: { n: 'Taylor', f: [['e', 'Función f(x)', 'e^x'], ['a', 'Centro a', '0', 's'], ['n', 'Grado n', '4', 's']], ex: ['e^x', 'sin(x)', 'cos(x)', 'ln(1+x)', '1/(1-x)', 'sqrt(1+x)'], hint: 'Polinomio de Taylor (Maclaurin si a = 0).' }
 };
 VIEWS.solve = (w, a) => {
@@ -4996,6 +5350,7 @@ VIEWS.solve = (w, a) => {
     const dv = id === 'v' ? (val || 'x') : id === 'o' ? (val || '1') : id === 'n' && mode === 'taylor' ? (val || '4') : id === 'a' && mode === 'taylor' ? (val || '0') : val;
     if (ty === 'ta') return `<div class="fld"><label>${lab}</label><textarea data-id="${id}" rows="3" placeholder="${esc(ph)}" autocapitalize="off" autocomplete="off" spellcheck="false">${esc(dv)}</textarea></div>`;
     if (ty === 'side') return `<div class="fld" data-small><label>${lab}</label><select data-id="${id}"><option value="">Ambos</option><option value="-1">Izquierda (⁻)</option><option value="1">Derecha (⁺)</option></select></div>`;
+    if (ty === 'alg') return `<div class="fld"><label>${lab}</label><select data-id="${id}">${[['factor', 'Factorizar'], ['expand', 'Desarrollar (quitar paréntesis)'], ['simplify', 'Simplificar']].map(([k, l]) => `<option value="${k}" ${pre && pre.op === k ? 'selected' : ''}>${l}</option>`).join('')}</select></div>`;
     if (ty === 'op') return `<div class="fld"><label>${lab}</label><select data-id="${id}"><option value="det">Determinante</option><option value="inv">Inversa (Gauss-Jordan)</option></select></div>`;
     return `<div class="fld" ${ty === 's' ? 'data-small' : ''}><label>${lab}</label><input data-id="${id}" value="${esc(dv)}" placeholder="${esc(ph)}" autocapitalize="off" autocomplete="off" spellcheck="false" inputmode="text"></div>`;
   }
@@ -5007,6 +5362,7 @@ VIEWS.solve = (w, a) => {
       if (mode === 'sys') pv.innerHTML = e.split(/[;\n]+/).filter(s => s.trim()).map(l => l.split('=').map(s => M.H(M.simplify(M.parse(s)))).join(' = ')).join('<br>');
       else if (mode === 'mat') { const rows = e.trim().split(/[;\n]+/).filter(Boolean).map(r => r.trim().split(/[\s,]+/)); pv.innerHTML = CA.matHTML(rows.map(r => r.map(x => esc(x)))); }
       else if (mode === 'eq') pv.innerHTML = e.split('=').map(s => M.H(M.parse(s))).join(' = ');
+      else if (mode === 'ineq') { const mm = /(<=|>=|≤|≥|<|>)/.exec(e); if (!mm) throw new Error('Falta el signo <, >, ≤ o ≥'); pv.innerHTML = M.H(M.parse(e.slice(0, mm.index))) + ' ' + ({ '<=': '≤', '>=': '≥', '<': '&lt;', '>': '&gt;' }[mm[1]] || mm[1]) + ' ' + M.H(M.parse(e.slice(mm.index + mm[1].length))); }
       else { const u = M.parse(e); const v = val('v') || 'x';
         pv.innerHTML = mode === 'der' ? `${M.fr('d', 'd' + v)}[${M.H(u)}]` : mode === 'int' ? `<span class="ig">∫</span>${val('a') && val('b') ? `<span class="bd"><sup>${esc(val('b'))}</sup><sub>${esc(val('a'))}</sub></span>` : ''} ${M.H(u)} d<i>${v}</i>` : mode === 'lim' ? `<span class="lim">lím<small>${v}→${esc(val('a') || '?')}</small></span> ${M.H(u)}` : M.H(u); }
       pv.className = 'preview';
@@ -5014,6 +5370,7 @@ VIEWS.solve = (w, a) => {
   }
   function keypad() {
     const K = [['x', 'x'], ['^', '^'], ['(', '('], [')', ')'], ['/', '/'], ['√', 'sqrt('], ['sen', 'sin('], ['cos', 'cos('], ['tan', 'tan('], ['ln', 'ln('], ['e', 'e^('], ['π', 'pi'], ['²', '^2'], ['∞', 'inf'], ['=', '='], ['*', '*'], ['⌫', 'BK'], ['C', 'CL']];
+    if (mode === 'ineq') { K[11] = ['=', '=']; K[13] = ['<', '<']; K[14] = ['>', '>']; }
     return `<div class="kp">${K.map(([l, k]) => `<button data-k="${esc(k)}" class="${k.length > 1 && !['BK', 'CL'].includes(k) ? 'k2' : ''}" type="button">${l}</button>`).join('')}</div>`;
   }
   function key(k) {
@@ -5038,11 +5395,14 @@ VIEWS.solve = (w, a) => {
       else if (mode === 'sys') r = CA.solveSystem(e);
       else if (mode === 'mat') r = val('op') === 'inv' ? CA.inverse(e) : CA.determinant(e);
       else if (mode === 'taylor') r = CA.solveTaylor(e, 'x', val('a') || '0', val('n') || '4');
+      else if (mode === 'alg') r = CA.solveAlgebra(e, 'x', val('op') || 'factor');
+      else if (mode === 'ineq') r = CA.solveInequality(e, v);
+      r.redo = { mode, pre: { e, a: val('a'), b: val('b'), v: val('v'), o: val('o'), op: val('op') } }; pushHistory(r, MODES[mode].n);
     } catch (er) { console.warn(er); out.innerHTML = `<div class="err-box">⚠️ ${esc(er.message || 'No se pudo resolver')}. Revisa cómo escribiste el ejercicio.</div>`; return; }
     renderSolution(out, r, MODES[mode].n);
     setTimeout(() => out.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
   }
-  panel(a.pre ? { e: a.pre.e, a: a.pre.a, b: a.pre.b, v: a.pre.v, o: a.pre.o } : null);
+  panel(a.pre ? { e: a.pre.e, a: a.pre.a, b: a.pre.b, v: a.pre.v, o: a.pre.o, op: a.pre.op } : null);
 };
 
 /* ---------- mostrar solución con pasos ---------- */
@@ -5059,8 +5419,10 @@ function renderSolution(out, r, label) {
     stepsEl.appendChild(d); return d;
   }
   function finish(anim) {
-    fin.innerHTML = `<div class="result ${r.fail ? 'fail' : ''} ${anim ? 'new' : ''}"><span class="rl">${r.fail ? 'Sin resultado simbólico' : 'Resultado'}</span>${r.result}</div>${r.note ? `<div class="note">${r.note}</div>` : ''}${r.ok === false ? '<div class="note">⚠️ La verificación numérica no coincidió; revisa el resultado.</div>' : ''}<div class="plotbox"></div>`;
+    fin.innerHTML = `<div class="result ${r.fail ? 'fail' : ''} ${anim ? 'new' : ''}"><span class="rl">${r.fail ? 'Sin resultado simbólico' : 'Resultado'}</span>${r.result}</div>${r.note ? `<div class="note">${r.note}</div>` : ''}${r.ok === false ? '<div class="note">⚠️ La verificación numérica no coincidió; revisa el resultado.</div>' : ''}<div class="plotbox"></div>
+      <div class="acts">${r.saved ? '' : '<button data-x="save">⭐<span>Guardar</span></button>'}<button data-x="share">↗<span>Compartir</span></button><button data-x="pdf">📄<span>PDF</span></button><button data-x="tutor">💬<span>Tutor IA</span></button></div><div class="tuhost"></div>`;
     if (r.plot) { try { window.Plot($('.plotbox', fin), r.plot); } catch (e) { } }
+    $$('.acts button', fin).forEach(bb => bb.onclick = () => { const k = bb.dataset.x; if (k === 'save') { saveNote(r, label); bb.disabled = true; } else if (k === 'share') shareSol(r, label); else if (k === 'pdf') printSol(r, label, out); else { const th = $('.tuhost', fin); if (!th.innerHTML) tutorBox(th, r, label); th.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
   }
   function upd() {
     $('.prog i', out).style.width = (tot ? shown / tot * 100 : 100) + '%';
@@ -5112,7 +5474,7 @@ VIEWS.num = (w, a) => {
   function run() {
     const v = {}; $$('#np [data-id]', w).forEach(i => v[i.dataset.id] = i.value.trim());
     const out = $('#nres', w);
-    try { const r = NM[meth].run(v); renderSolution(out, r, NM[meth].n); setTimeout(() => out.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60); }
+    try { const r = NM[meth].run(v); r.redo = { mode: 'num', method: meth, pre: { e: v.f, a: v.a, b: v.b, h: v.h, n: v.n } }; pushHistory(r, NM[meth].n); renderSolution(out, r, NM[meth].n); setTimeout(() => out.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60); }
     catch (er) { out.innerHTML = `<div class="err-box">⚠️ ${esc(er.message)}</div>`; }
   }
   form(a.pre);
@@ -5129,6 +5491,49 @@ VIEWS.lab = (w, a) => {
   function show() { const b = $('#lb', w); b.innerHTML = ''; b.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 300 }); ({ calc: sciTool, graph: graphTool, beam: beamTool, units: unitTool })[tool](b, a); }
   show();
 };
+/* ---- análisis de funciones: raíces, extremos, inflexión e intersecciones ---- */
+function scanRoots(g, a, b, n) {
+  const out = []; let px = a, py = g(a);
+  for (let i = 1; i <= n; i++) {
+    const t = a + (b - a) * i / n, y = g(t);
+    if (isFinite(y) && isFinite(py)) {
+      if (y === 0) out.push(t);
+      else if (py * y < 0) { let lo = px, hi = t, fl = py; for (let k = 0; k < 70; k++) { const m = (lo + hi) / 2, fm = g(m); if (fl * fm <= 0) hi = m; else { lo = m; fl = fm; } } const r = (lo + hi) / 2; if (Math.abs(g(r)) < 1e-6) out.push(r); }
+    }
+    px = t; py = y;
+  }
+  const u = []; out.forEach(r => { if (!u.some(o => Math.abs(o - r) < 1e-6)) u.push(Math.abs(r) < 1e-10 ? 0 : r); }); return u;
+}
+function analyzeFns(fns) {
+  const A = -10, B = 10, NN = 4000, cols = ['#3b82f6', '#f43f5e', '#10b981'];
+  const nv = (v) => CA.niceVal(Math.abs(v) < 1e-10 ? 0 : v), pt = (x0, y0) => `(${nv(x0)}, ${nv(y0)})`;
+  const marks = []; let html = `<div class="panel" style="margin-top:12px"><h3>Análisis de la gráfica</h3><p class="hint">Calculado en el intervalo [−10, 10]. Las raíces de f′ dan los máximos y mínimos; las de f″, los puntos de inflexión.</p>`;
+  fns.forEach((F, i) => {
+    const f = M.compile(F.e, 'x'); let d1 = null, d2 = null;
+    try { d1 = CA.derivQuiet(F.e, 'x'); d2 = CA.derivQuiet(d1, 'x'); } catch (e) { }
+    const g1 = d1 ? M.compile(d1, 'x') : (t) => (f(t + 1e-5) - f(t - 1e-5)) / 2e-5, g2 = d2 ? M.compile(d2, 'x') : (t) => (g1(t + 1e-4) - g1(t - 1e-4)) / 2e-4;
+    const roots = scanRoots(f, A, B, NN), y0 = f(0);
+    const ext = scanRoots(g1, A, B, NN).filter(t => isFinite(f(t))).map(t => { const c = g2(t), l = f(t - 1e-3), r = f(t + 1e-3), y = f(t); const k = (c < -1e-9 || (l < y && r < y)) ? 'máx' : (c > 1e-9 || (l > y && r > y)) ? 'mín' : null; return k ? { t, y, k } : null; }).filter(Boolean);
+    const inf = scanRoots(g2, A, B, NN).filter(t => isFinite(f(t)) && Math.sign(g2(t - 1e-3)) !== Math.sign(g2(t + 1e-3)));
+    roots.forEach(t => marks.push([t, 0, '#10b981'])); ext.forEach(e => marks.push([e.t, e.y, e.k === 'máx' ? '#ef4444' : '#f59e0b'])); inf.forEach(t => marks.push([t, f(t), '#8b5cf6']));
+    if (isFinite(y0)) marks.push([0, y0, '#0ea5e9']);
+    const row = (l, v) => `<tr><td>${l}</td><td>${v}</td></tr>`;
+    html += `<div class="anf"><b><i style="background:${cols[i]}"></i>f${i + 1}(x) = ${M.H(F.e)}</b><div class="tblw"><table class="tbl">
+      ${row('Corte con eje y', isFinite(y0) ? pt(0, y0) : 'no existe (f(0) indefinida)')}
+      ${row('Raíces (cortes con eje x)', roots.length ? roots.slice(0, 8).map(t => 'x = ' + nv(t)).join(', ') + (roots.length > 8 ? '…' : '') : 'ninguna en [−10, 10]')}
+      ${row('Máximos', ext.filter(e => e.k === 'máx').slice(0, 6).map(e => pt(e.t, e.y)).join(', ') || '—')}
+      ${row('Mínimos', ext.filter(e => e.k === 'mín').slice(0, 6).map(e => pt(e.t, e.y)).join(', ') || '—')}
+      ${row('Puntos de inflexión', inf.slice(0, 6).map(t => pt(t, f(t))).join(', ') || '—')}
+      ${d1 ? row('Derivada', 'f′(x) = ' + M.H(d1)) : ''}</table></div></div>`;
+  });
+  for (let i = 0; i < fns.length; i++) for (let j = i + 1; j < fns.length; j++) {
+    const f = M.compile(fns[i].e, 'x'), g = M.compile(fns[j].e, 'x'); const xs = scanRoots(t => f(t) - g(t), A, B, NN);
+    xs.forEach(t => marks.push([t, f(t), '#0f172a']));
+    html += `<p class="anx"><b>Intersección f${i + 1} y f${j + 1}:</b> ${xs.length ? xs.slice(0, 8).map(t => pt(t, f(t))).join(', ') : 'no se cortan en [−10, 10]'}</p>`;
+  }
+  html += `<div class="anleg"><span><i style="background:#10b981"></i>raíz</span><span><i style="background:#ef4444"></i>máximo</span><span><i style="background:#f59e0b"></i>mínimo</span><span><i style="background:#8b5cf6"></i>inflexión</span><span><i style="background:#0ea5e9"></i>corte y</span>${fns.length > 1 ? '<span><i style="background:#0f172a"></i>intersección</span>' : ''}</div></div>`;
+  return { marks, html };
+}
 function graphTool(b, a) {
   const cols = ['#3b82f6', '#f43f5e', '#10b981'];
   const saved = store.get('graphs', ['sin(x)', 'x^2/4', '']);
@@ -5138,7 +5543,7 @@ function graphTool(b, a) {
   const draw = () => {
     const fs = $$('[data-g]', b).map(i => i.value.trim()); store.set('graphs', fs);
     const box = $('#gbox', b); box.innerHTML = '';
-    try { const fns = fs.map((f, i) => f ? { e: M.simplify(M.parse(f)), label: f } : null).filter(Boolean); if (!fns.length) return; window.Plot(box, { fns, x: 'x' }); }
+    try { const fns = fs.map((f, i) => f ? { e: M.simplify(M.parse(f)), label: f } : null).filter(Boolean); if (!fns.length) return; const an = analyzeFns(fns); window.Plot(box, { fns, x: 'x', marks: an.marks }); box.insertAdjacentHTML('beforeend', an.html); }
     catch (er) { box.innerHTML = `<div class="err-box">⚠️ ${esc(er.message)}</div>`; }
   };
   $('#gp', b).onclick = draw; $$('[data-g]', b).forEach(i => i.onkeydown = e => { if (e.key === 'Enter') draw(); });
@@ -5631,6 +6036,201 @@ function guessFromText(t) { // convierte texto leído en un ejercicio probable (
 }
 
 /* =========================================================
+   CUADERNO (guardados + historial), COMPARTIR y PDF
+   ========================================================= */
+function solPack(r, label) { return { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), t: Date.now(), label, input: r.input, result: r.result, note: r.note || '', steps: r.steps.map(s => ({ d: s.d || 0, w: s.w, m: s.m || '', y: s.y || '' })), redo: r.redo || null }; }
+function pushHistory(r, label) {
+  try { const h = store.get('solHist', []); const p = solPack(r, label); if (h[0] && h[0].input === p.input) h.shift(); h.unshift(p); store.set('solHist', h.slice(0, 25)); } catch (e) { }
+}
+function saveNote(r, label) {
+  const n = store.get('notes', []); const p = solPack(r, label);
+  if (n.some(x => x.input === p.input && x.result === p.result)) { toast('Ya está en tu cuaderno'); return; }
+  n.unshift(p); store.set('notes', n.slice(0, 80)); toast('⭐ Guardado en tu cuaderno');
+}
+function solText(r, label) {
+  return `INGENIUM · ${label}\n${strip(r.input)}\n\n` + r.steps.map((s, i) => `${'  '.repeat(s.d || 0)}${i + 1}. ${strip(s.w)}${s.m ? ': ' + strip(s.m) : ''}`).join('\n') + `\n\nResultado: ${strip(r.result)}`;
+}
+async function shareSol(r, label) {
+  const text = solText(r, label);
+  try { if (navigator.share) { await navigator.share({ title: 'INGENIUM · ' + label, text }); return; } } catch (e) { if (e && e.name === 'AbortError') return; }
+  try { await navigator.clipboard.writeText(text); toast('Solución copiada: pégala en WhatsApp o donde quieras'); } catch (e) { toast('No se pudo compartir'); }
+}
+function printSol(r, label, out) {
+  const old = document.getElementById('printArea'); if (old) old.remove();
+  const cv = out && out.querySelector('.plotbox canvas'); let img = '';
+  try { if (cv) img = `<img src="${cv.toDataURL('image/png')}" alt="gráfica">`; } catch (e) { }
+  const d = document.createElement('div'); d.id = 'printArea';
+  d.innerHTML = `<div class="pa-h"><b>∫ INGENIUM</b><span>${esc(label)} · ${new Date().toLocaleDateString('es')}</span></div>
+    <div class="pa-in">${r.input}</div>
+    ${r.steps.map((s, i) => `<div class="pa-st d${Math.min(s.d || 0, 3)}"><div class="pa-w">${i + 1}. ${s.w}</div>${s.m ? `<div class="pa-m">${s.m}</div>` : ''}${s.y ? `<div class="pa-y"><b>¿De dónde sale?</b> ${s.y}</div>` : ''}</div>`).join('')}
+    <div class="pa-r"><b>Resultado:</b> ${r.result}</div>${r.note ? `<p>${r.note}</p>` : ''}${img}<p class="pa-f">Resuelto con INGENIUM · Asistente de ingeniería</p>`;
+  document.body.appendChild(d); document.body.classList.add('printing');
+  const done = () => { document.body.classList.remove('printing'); d.remove(); window.removeEventListener('afterprint', done); };
+  window.addEventListener('afterprint', done);
+  setTimeout(() => { try { window.print(); } catch (e) { toast('Tu navegador no permite imprimir'); } setTimeout(() => { if (document.body.classList.contains('printing')) done(); }, 60000); }, 120);
+}
+VIEWS.notebook = (w, a) => {
+  setTitle('Mi cuaderno', 'Ejercicios guardados e historial');
+  let tab = a.tab || 'notes';
+  w.innerHTML = `<div class="chips"><button class="chip" data-nt="notes">⭐ Guardados</button><button class="chip" data-nt="solHist">🕘 Historial</button></div><div id="nl" class="stag"></div>`;
+  const list = () => {
+    $$('[data-nt]', w).forEach(c => c.classList.toggle('on', c.dataset.nt === tab));
+    const items = store.get(tab, []), nl = $('#nl', w);
+    if (!items.length) { nl.innerHTML = `<div class="empty">${tab === 'notes' ? 'Aún no guardas ejercicios. Cuando resuelvas uno, toca <b>⭐ Guardar</b> debajo del resultado.' : 'Aquí aparecen los últimos ejercicios que resolviste.'}</div>`; return; }
+    nl.innerHTML = items.map((x, i) => `<div class="nbi"><button class="nbo" data-i="${i}"><small>${esc(x.label)} · ${new Date(x.t).toLocaleDateString('es', { day: 'numeric', month: 'short' })}</small><span class="nbx">${x.input}</span><span class="nbr">${x.result}</span></button><button class="nbd" data-d="${i}" aria-label="Borrar">✕</button></div>`).join('');
+    $$('[data-i]', nl).forEach(b => b.onclick = () => push('saved', { tab, id: items[+b.dataset.i].id }));
+    $$('[data-d]', nl).forEach(b => b.onclick = () => { const it = store.get(tab, []); it.splice(+b.dataset.d, 1); store.set(tab, it); list(); });
+  };
+  $$('[data-nt]', w).forEach(c => c.onclick = () => { tab = c.dataset.nt; list(); });
+  list();
+};
+VIEWS.saved = (w, a) => {
+  const x = store.get(a.tab || 'notes', []).find(y => y.id === a.id);
+  setTitle(x ? x.label : 'Ejercicio', 'De tu cuaderno');
+  if (!x) { w.innerHTML = '<div class="empty">Este ejercicio ya no está guardado.</div>'; return; }
+  w.innerHTML = `${x.redo ? `<button class="btn btn-s btn-block" id="svR" style="margin-bottom:12px">↻ Abrir en el resolvedor (con gráfica)</button>` : ''}<div id="svo"></div>`;
+  renderSolution($('#svo', w), { ...x, saved: true }, x.label); $('[data-c="a"]', w).click();
+  if (x.redo) $('#svR', w).onclick = () => goTab(x.redo.mode === 'num' ? 'num' : 'solve', x.redo.mode === 'num' ? { method: x.redo.method, pre: x.redo.pre } : { mode: x.redo.mode, pre: x.redo.pre });
+};
+
+/* =========================================================
+   TUTOR IA: preguntas sobre la solución (clave propia)
+   ========================================================= */
+async function aiMessages(system, messages, maxTokens) {
+  if (!AI.key()) throw new Error('Pon tu clave de Anthropic en Ajustes → Lector de fotos con IA (la misma sirve para el tutor).');
+  if (!navigator.onLine) throw new Error('Sin conexión a internet.');
+  const model = AI.model(), opus = /opus/.test(model);
+  const body = { model, max_tokens: maxTokens || 16000, system, messages, output_config: { effort: 'medium' } };
+  const headers = { 'content-type': 'application/json', 'x-api-key': AI.key(), 'anthropic-version': '2026-10-21', 'anthropic-dangerous-direct-browser-access': 'true' };
+  if (opus) { body.fallbacks = 'default'; headers['anthropic-beta'] = 'server-side-fallback-2026-07-01'; }
+  let res; try { res = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST', headers, body: JSON.stringify(body) }); } catch (e) { throw new Error('No se pudo conectar con la IA. Revisa tu internet.'); }
+  let j = null; try { j = await res.json(); } catch (e) { }
+  if (!res.ok) { const m = j && j.error ? j.error.message : ''; throw new Error(res.status === 401 ? 'La clave de API no es válida (revísala en Ajustes).' : res.status === 429 ? 'Sin saldo o demasiadas solicitudes en tu cuenta de Anthropic. ' + m : res.status >= 500 ? 'La IA está ocupada, intenta en un minuto.' : 'Error de la IA (' + res.status + '). ' + m); }
+  if (j.stop_reason === 'refusal') throw new Error('La IA no pudo responder esta pregunta.');
+  return (j.content || []).filter(c => c.type === 'text').map(c => c.text).join('').trim();
+}
+function mdLite(t) { // formato simple y seguro para las respuestas
+  return esc(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/(^|\n)#{1,4} (.+)/g, '$1<b>$2</b>').replace(/(^|\n)[-•] /g, '$1• ').replace(/\n/g, '<br>');
+}
+function tutorBox(host, r, label) {
+  const ctx = solText(r, label).slice(0, 12000), conv = [];
+  const sys = `Eres un tutor universitario paciente que explica a Angel, estudiante venezolano de Ingeniería Mecánica, en español sencillo y con notación en español (sen en lugar de sin). Te paso un ejercicio ya resuelto paso a paso por la app INGENIUM. Responde SOLO sobre este ejercicio o su tema: explica el porqué de los pasos, aclara dudas, da ejemplos parecidos o aplicaciones en ingeniería mecánica. Sé breve (máximo unos 150-200 palabras salvo que pida más), usa pasos numerados cuando ayude y escribe las fórmulas en texto plano (x^2, √, ∫, fracciones con /). Si detectas un error en la solución de la app, dilo con claridad. No inventes resultados: si no estás seguro, dilo.\n\nEJERCICIO RESUELTO:\n${ctx}`;
+  host.innerHTML = `<div class="tutor"><div class="tu-h">💬 Tutor IA <small>pregunta lo que no entiendas</small></div><div class="tu-l"></div>
+    <div class="tu-q">${['No entiendo un paso, explícamelo más simple', '¿Por qué se hace así?', 'Dame un ejercicio parecido para practicar', '¿Dónde se usa esto en ingeniería mecánica?'].map(q => `<button>${q}</button>`).join('')}</div>
+    <div class="tu-in"><textarea rows="1" placeholder="Ej.: ¿por qué en el paso 7 el signo cambia?"></textarea><button class="btn btn-p" aria-label="Enviar">➤</button></div></div>`;
+  const L = $('.tu-l', host), T = $('textarea', host), Bt = $('.tu-in .btn', host);
+  const add = (who, html) => { const d = document.createElement('div'); d.className = 'tu-m ' + who; d.innerHTML = html; L.appendChild(d); d.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return d; };
+  async function ask(q) {
+    q = q.trim(); if (!q) return; T.value = ''; add('me', esc(q)); conv.push({ role: 'user', content: q });
+    const wait = add('ai', '<span class="dots"><i></i><i></i><i></i></span>'); Bt.disabled = true;
+    try { const a = await aiMessages(sys, conv, 16000); conv.push({ role: 'assistant', content: a }); wait.innerHTML = mdLite(a); }
+    catch (e) { conv.pop(); wait.className = 'tu-m err'; wait.textContent = '⚠️ ' + e.message; if (!AI.key()) { const b2 = document.createElement('button'); b2.className = 'btn btn-s'; b2.textContent = 'Ir a Ajustes'; b2.onclick = () => push('settings'); wait.appendChild(b2); } }
+    finally { Bt.disabled = false; }
+  }
+  Bt.onclick = () => ask(T.value);
+  T.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); ask(T.value); } });
+  $$('.tu-q button', host).forEach(b => b.onclick = () => ask(b.textContent));
+  T.focus({ preventScroll: true });
+}
+
+/* =========================================================
+   MODO PRÁCTICA: ejercicios aleatorios con corrección
+   ========================================================= */
+const RI = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+const RNZ = (a, b) => { let v = 0; while (!v) v = RI(a, b); return v; };
+const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const sg = (v) => (v < 0 ? '-' : '+') + Math.abs(v);
+const PRACT = window.INGENIUM_PRACT = {
+  der: { n: 'Derivadas', gen: (lv) => {
+    const a = RNZ(-6, 6), b = RNZ(-9, 9), c = RI(-9, 9), n = RI(2, 5), k = RNZ(1, 5);
+    const T = [[`${a}x^${n}${sg(b)}x${c ? sg(c) : ''}`, `${RNZ(1, 4)}x^${RI(3, 6)}${sg(a)}x^2${sg(b)}`],
+      [`${a}sin(${k}x)`, `e^(${k}x)${sg(b)}x^2`, `ln(${k}x${sg(Math.abs(b))})`, `(${k}x${sg(b)})^${n}`],
+      [`x^${n} sin(x)`, `x^2 e^(${k}x)`, `(x^2${sg(b)})/(x${sg(c || 1)})`, `sin(x^2${sg(b)})`, `x ln(x)`]][lv];
+    const e = pick(T); return { mode: 'der', e, q: `Deriva: f(x) = ${e}`, show: () => `${M.fr('d', 'dx')}[${M.H(M.parse(e))}]`, ph: 'Escribe f′(x)' };
+  }, check: (it, ans) => numEq(CA.derivQuiet(M.simplify(M.parse(it.e)), 'x'), M.simplify(M.parse(ans))) },
+  int: { n: 'Integrales', gen: (lv) => {
+    const a = RNZ(-6, 6), b = RNZ(-9, 9), c = RI(-9, 9), n = RI(2, 4), k = RNZ(1, 4);
+    if (lv === 0 && Math.random() < 0.5) { const lo = RI(-3, 1), hi = lo + RI(1, 4), e = `${3 * a}x^2${sg(2 * b)}x`; return { mode: 'int', e, a: String(lo), b: String(hi), q: `Calcula ∫ de ${lo} a ${hi}`, show: () => `<span class="ig">∫</span><span class="bd"><sup>${hi}</sup><sub>${lo}</sub></span> ${M.H(M.parse(e))} dx`, ph: 'Valor exacto (ej. 95/2) o decimal' }; }
+    const T = [[`${a}x^${n}${sg(b)}x${c ? sg(c) : ''}`, `${a}${sg(b)}x`],
+      [`e^(${k}x)`, `${a}cos(${k}x)`, `(${k}x${sg(b)})^${n}`, `${a}/x`, `x(x${sg(b)})`],
+      [`x e^(x^2)`, `x cos(x)`, `ln(x)`, `x e^(${k}x)`, `sin(x)^2 cos(x)`]][lv];
+    const e = pick(T); return { mode: 'int', e, q: `Integra: ∫ ${e} dx`, show: () => `<span class="ig">∫</span> ${M.H(M.parse(e))} dx`, ph: 'Escribe F(x) (la + C no es necesaria)' };
+  }, check: (it, ans) => {
+    if (it.a !== undefined) { const v = numInt(it); return Math.abs(M.evalN(M.simplify(M.parse(ans))) - v) < 1e-6 * Math.max(1, Math.abs(v)); }
+    return numEq(CA.derivQuiet(M.simplify(M.parse(ans.replace(/\+\s*C\s*$/i, ''))), 'x'), M.simplify(M.parse(it.e)));
+  } },
+  lim: { n: 'Límites', gen: (lv) => {
+    const r = RNZ(-5, 5), s = RNZ(-6, 6), k = RNZ(2, 6), a = RNZ(1, 5), b = RNZ(1, 7);
+    const T = [[[`x^2${sg(2 * r)}x${sg(r * r - s)}`, String(r)], [`(x^2-${r * r})/(x${sg(-r)})`, String(r)]],
+      [[`(x^2${sg(s - r)}x${sg(-r * s)})/(x${sg(-r)})`, String(r)], [`sin(${k}x)/x`, '0'], [`(${a}x^2${sg(b)}x)/(${b}x^2${sg(-1)})`, 'inf']],
+      [[`(x^3-${r < 0 ? '(' + r + ')^3' : r + '^3'})/(x${sg(-r)})`, String(r)], [`(e^(${k}x)-1)/x`, '0'], [`(1+${k}/x)^x`, 'inf'], [`(sqrt(x+${k * k})-${k})/x`, '0']]][lv];
+    const [e, to] = pick(T); return { mode: 'lim', e, a: to, q: `Calcula el límite cuando x → ${to === 'inf' ? '∞' : to}`, show: () => `<span class="lim">lím<small>x→${to === 'inf' ? '∞' : to}</small></span> ${M.H(M.parse(e))}`, ph: 'Valor del límite (ej. 6, 1/2, e^3, inf)' };
+  }, check: (it, ans) => { const L = CA.solveLimit(it.e, 'x', it.a, 0); const v = limVal(L, it); const u = /inf|∞/.test(ans) ? (/-/.test(ans) ? -Infinity : Infinity) : M.evalN(M.simplify(M.parse(ans))); return v === u || Math.abs(u - v) < 1e-4 * Math.max(1, Math.abs(v)); } },
+  eq: { n: 'Ecuaciones', gen: (lv) => {
+    const r1 = RNZ(-6, 6), r2 = RNZ(-6, 6), a = RNZ(-5, 5), b = RI(-9, 9), c = RI(-9, 9);
+    if (lv === 0) return mkEq(`${a}x${sg(b)}=${a * r1 + b}`, [r1]);
+    if (lv === 1) return mkEq(`x^2${sg(-(r1 + r2))}x${sg(r1 * r2)}=0`.replace('+0x', '').replace('-0x', ''), [r1, r2]);
+    const r3 = RNZ(-4, 4); const B = -(r1 + r2 + r3), C2 = r1 * r2 + r1 * r3 + r2 * r3, D = -r1 * r2 * r3;
+    return mkEq(`x^3${sg(B)}x^2${sg(C2)}x${sg(D)}=0`, [r1, r2, r3]);
+  }, check: (it, ans) => { const xs = ans.split(/[;,]|\by\b/).map(z => z.replace(/x\s*\d?\s*=/, '').trim()).filter(Boolean).map(z => M.evalN(M.simplify(M.parse(z)))).filter((v, i, arr) => arr.findIndex(w => Math.abs(w - v) < 1e-9) === i); const want = [...new Set(it.sol)]; return xs.length === want.length && want.every(w => xs.some(v => Math.abs(v - w) < 1e-6)); } },
+  alg: { n: 'Factorizar', gen: (lv) => {
+    const r1 = RNZ(-6, 6), r2 = RNZ(-6, 6), k = RNZ(2, 5);
+    const T = [() => [`x^2${sg(-(r1 + r2))}x${sg(r1 * r2)}`], () => [`${k}x^2${sg(-k * (r1 + r2))}x${sg(k * r1 * r2)}`, `x^2-${r1 * r1}`, `${k * k}x^2-${r2 * r2}`], () => { const r3 = RNZ(-4, 4); return [`x^3${sg(-(r1 + r2 + r3))}x^2${sg(r1 * r2 + r1 * r3 + r2 * r3)}x${sg(-r1 * r2 * r3)}`, `x^3-${Math.abs(r1) ** 3}`, `x^4-${r1 * r1 + r2 * r2}x^2+${r1 * r1 * r2 * r2}`]; }][lv];
+    const e = pick(T()).replace(/\+0x(?!\^)/, '').replace(/-0x(?!\^)/, ''); return { mode: 'alg', e, q: 'Factoriza completamente', show: () => M.H(M.simplify(M.parse(e))), ph: 'Ej.: (x-2)(x+3)' };
+  }, check: (it, ans) => { const u = M.parse(ans); if (!(u.t === 'mul' || u.t === 'pow')) return false; return numEq(M.simplify(u), M.simplify(M.parse(it.e))); } }
+};
+function mkEq(e, sol) { return { mode: 'eq', e, sol, q: 'Resuelve la ecuación', show: () => e.split('=').map(z => M.H(M.parse(z))).join(' = '), ph: 'Soluciones separadas por coma (ej. 2, -3)' }; }
+function numEq(f, g) { let ok = 0, tot = 0; for (const t of [0.37, 0.81, 1.23, 1.71, 2.3, -0.6, 0.53, 2.9]) { const a = M.evalN(f, { x: t }), b = M.evalN(g, { x: t }); if (!isFinite(a) || !isFinite(b)) continue; tot++; if (Math.abs(a - b) <= 1e-6 * Math.max(1, Math.abs(a))) ok++; } return tot > 2 && ok === tot; }
+function numInt(it) { const f = M.compile(M.simplify(M.parse(it.e)), 'x'); return CA.simpson(f, +it.a, +it.b, 2000).v; }
+function limVal(L, it) { const s = strip(L.result).split('=').pop().trim(); if (/∞/.test(s)) return /−/.test(s) ? -Infinity : Infinity; const f = M.compile(M.simplify(M.parse(it.e)), 'x'); if (it.a === 'inf') { const v = f(1e8); return Math.abs(v) > 1e7 ? (v > 0 ? Infinity : -Infinity) : v; } const a = +it.a; return (f(a + 1e-6) + f(a - 1e-6)) / 2; }
+VIEWS.practice = (w) => {
+  setTitle('Práctica', 'Ejercicios nuevos cada vez');
+  let topic = store.get('prTopic', 'der'), lv = store.get('prLv', 0), cur = null, tries = 0;
+  const sc = store.get('prScore', { ok: 0, tot: 0, streak: 0, best: 0 });
+  w.innerHTML = `<div class="prs"><div><b id="pOk">${sc.ok}</b><small>correctas</small></div><div><b id="pPc">${sc.tot ? Math.round(sc.ok / sc.tot * 100) : 0}%</b><small>acierto</small></div><div><b id="pSt">🔥 ${sc.streak}</b><small>racha (mejor ${sc.best})</small></div></div>
+    <div class="chips" id="pT">${Object.entries(PRACT).map(([k, v]) => `<button class="chip ${k === topic ? 'on' : ''}" data-k="${k}">${v.n}</button>`).join('')}</div>
+    <div class="seg pseg" id="pL" style="margin-bottom:12px">${['Básico', 'Intermedio', 'Avanzado'].map((l, i) => `<button data-l="${i}" class="${i === lv ? 'on' : ''}">${l}</button>`).join('')}</div>
+    <div id="pQ"></div>`;
+  const upd = () => { $('#pOk', w).textContent = sc.ok; $('#pPc', w).textContent = (sc.tot ? Math.round(sc.ok / sc.tot * 100) : 0) + '%'; $('#pSt', w).textContent = '🔥 ' + sc.streak; $('#pSt', w).nextElementSibling.textContent = `racha (mejor ${sc.best})`; store.set('prScore', sc); };
+  function next() {
+    tries = 0;
+    for (let k = 0; k < 20; k++) { try { cur = PRACT[topic].gen(lv); cur.show(); break; } catch (e) { cur = null; } }
+    const q = $('#pQ', w);
+    q.innerHTML = `<div class="panel pq"><div class="pq-t">${esc(cur.q)}</div><div class="pq-e">${cur.show()}</div>
+      <div class="fld"><label>Tu respuesta</label><input id="pA" placeholder="${esc(cur.ph)}" autocapitalize="off" autocomplete="off" spellcheck="false"></div>
+      <div class="preview" id="pP"><span class="ph">Vista previa de tu respuesta</span></div>
+      <div class="row2"><button class="btn btn-p" id="pC">Comprobar</button><button class="btn btn-s" id="pH">💡 Pista</button></div>
+      <div id="pR"></div>
+      <div class="row2" style="margin-top:10px"><button class="btn btn-s" id="pS">Ver solución</button><button class="btn btn-s" id="pN">Otro ejercicio ▸</button></div></div>`;
+    const A = $('#pA', q);
+    A.oninput = () => { const P = $('#pP', q); try { P.innerHTML = A.value.trim() ? (cur.mode === 'eq' ? esc(A.value) : M.H(M.parse(A.value.replace(/\+\s*C\s*$/i, '')))) : '<span class="ph">Vista previa de tu respuesta</span>'; P.className = 'preview'; } catch (e) { P.className = 'preview err'; P.textContent = '⚠ ' + e.message; } };
+    A.onkeydown = e => { if (e.key === 'Enter') $('#pC', q).click(); };
+    $('#pC', q).onclick = () => {
+      const ans = A.value.trim(); if (!ans) { toast('Escribe tu respuesta'); return; }
+      let ok = false; try { ok = PRACT[topic].check(cur, ans); } catch (e) { $('#pR', q).innerHTML = `<div class="err-box">⚠️ No entendí tu respuesta: ${esc(e.message)}</div>`; return; }
+      tries++; if (tries === 1) { sc.tot++; if (ok) { sc.ok++; sc.streak++; sc.best = Math.max(sc.best, sc.streak); } else sc.streak = 0; upd(); }
+      $('#pR', q).innerHTML = ok ? `<div class="result new"><span class="rl">¡Correcto! 🎉</span>${tries === 1 ? '+1 a tu racha' : 'Bien, a la ' + tries + 'ª'}</div>` : `<div class="err-box">✗ Todavía no. ${cur.mode === 'alg' ? 'Debe quedar como producto de factores. ' : ''}Revisa tu procedimiento o pide una pista.</div>`;
+      if (ok && navigator.vibrate) try { navigator.vibrate(30); } catch (e) { }
+    };
+    $('#pH', q).onclick = () => {
+      try { const r = solveFor(cur); const st = r.steps.filter(s => !s.d).slice(0, 2); $('#pR', q).innerHTML = `<div class="note">💡 <b>${st.map(s => strip(s.w)).join(' → ')}</b><br>${st[0] ? st[0].y : ''}</div>`; } catch (e) { toast('Sin pista para este'); }
+    };
+    $('#pS', q).onclick = () => goTab('solve', { mode: cur.mode, pre: { e: cur.e, a: cur.a, b: cur.b, v: 'x' } });
+    $('#pN', q).onclick = next;
+  }
+  $$('#pT .chip', w).forEach(c => c.onclick = () => { topic = c.dataset.k; store.set('prTopic', topic); $$('#pT .chip', w).forEach(x => x.classList.toggle('on', x === c)); next(); });
+  $$('#pL button', w).forEach(c => c.onclick = () => { lv = +c.dataset.l; store.set('prLv', lv); $$('#pL button', w).forEach(x => x.classList.toggle('on', x === c)); next(); });
+  next();
+};
+function solveFor(it) {
+  if (it.mode === 'der') return CA.solveDerivative(it.e, 'x', 1);
+  if (it.mode === 'int') return CA.solveIntegral(it.e, 'x', it.a, it.b);
+  if (it.mode === 'lim') return CA.solveLimit(it.e, 'x', it.a, 0);
+  if (it.mode === 'eq') return CA.solveEquation(it.e, 'x');
+  return CA.solveAlgebra(it.e, 'x', 'factor');
+}
+
+/* =========================================================
    INTERNET (Wikipedia en español)
    ========================================================= */
 const WAPI = 'https://es.wikipedia.org/w/api.php';
@@ -5710,6 +6310,8 @@ function localSearch(q) {
 }
 function detectSolve(q) {
   const s = q.trim(); const out = [];
+  const m0 = s.match(/^(factoriza|factorizar|desarrolla|desarrollar|simplifica|simplificar)\s+(.+)$/i); if (m0) return [['alg', m0[2], /^d/i.test(m0[1]) ? 'expand' : /^s/i.test(m0[1]) ? 'simplify' : 'factor']];
+  if (/[<>≤≥]/.test(s)) { try { const mm = /(<=|>=|≤|≥|<|>)/.exec(s); M.parse(s.slice(0, mm.index)); M.parse(s.slice(mm.index + mm[1].length)); return [['ineq', s]]; } catch (e) { return []; } }
   const m1 = s.match(/^(?:la\s+)?deriva(?:da|r)?\s*(?:de)?\s+(.+)$/i); if (m1) return [['der', m1[1]]];
   const m2 = s.match(/^(?:la\s+)?integra(?:l|r)?\s*(?:de)?\s+(.+?)(?:\s+de\s+(\S+)\s+a\s+(\S+))?$/i); if (m2) return [['int', m2[1], m2[2], m2[3]]];
   const m3 = s.match(/^l[ií]m(?:ite)?\s*(?:de)?\s+(.+?)\s+(?:cuando\s+)?x\s*(?:->|→|tiende a)\s*(\S+)$/i); if (m3) return [['lim', m3[1], m3[2]]];
@@ -5730,13 +6332,13 @@ function openSearch(initial) {
     const q = inp.value.trim(); const sb = $('#sb', el);
     if (!q) { sb.innerHTML = `<div class="s-sec">Sugerencias</div><div class="s-sug">${['¿Qué es un software?', 'Regla de la cadena', 'Bernoulli', 'Esfuerzo y deformación', 'Newton-Raphson', 'Python', 'Integración por partes', 'Termodinámica', 'derivada de x^2 sin(x)', 'Engranaje', 'Torque', 'Soldadura'].map(s => `<button data-q="${esc(s)}">${esc(s)}</button>`).join('')}</div>`; $$('[data-q]', sb).forEach(b => b.onclick = () => { inp.value = b.dataset.q; run(); }); return; }
     const sv = detectSolve(q); const res = localSearch(q);
-    const names = { der: 'Derivar paso a paso', int: 'Integrar paso a paso', lim: 'Calcular el límite', eq: 'Resolver la ecuación', graph: 'Graficar' };
+    const names = { alg: 'Álgebra paso a paso', ineq: 'Resolver la desigualdad', der: 'Derivar paso a paso', int: 'Integrar paso a paso', lim: 'Calcular el límite', eq: 'Resolver la ecuación', graph: 'Graficar' };
     let h = '';
-    if (sv.length) h += `<div class="s-sec">${ic('pen', 14)} Resolver</div>` + sv.map((x, i) => { let pv = ''; try { pv = x[0] === 'eq' ? x[1].split('=').map(p => M.H(M.parse(p))).join(' = ') : M.H(M.parse(x[1])); } catch (e) { pv = esc(x[1]); } return `<button class="solve-card" data-sv="${i}">${ic(x[0] === 'graph' ? 'chart' : 'pen')}<span><b>${names[x[0]]}</b><small>${pv}</small></span></button>`; }).join('');
+    if (sv.length) h += `<div class="s-sec">${ic('pen', 14)} Resolver</div>` + sv.map((x, i) => { let pv = ''; try { pv = x[0] === 'eq' ? x[1].split('=').map(p => M.H(M.parse(p))).join(' = ') : x[0] === 'ineq' ? esc(x[1]) : M.H(M.parse(x[1])); } catch (e) { pv = esc(x[1]); } return `<button class="solve-card" data-sv="${i}">${ic(x[0] === 'graph' ? 'chart' : 'pen')}<span><b>${names[x[0]]}</b><small>${pv}</small></span></button>`; }).join('');
     h += `<div class="s-sec">${ic('book', 14)} En la app (${res.length})</div>` + (res.length ? res.map(rowLesson).join('') : `<div class="s-empty" style="padding:8px">No está en la biblioteca local.</div>`);
     h += `<div class="s-sec">${ic('globe', 14)} En internet</div><div id="swr"><div class="s-empty" style="padding:10px"><span class="spin"></span> Buscando en Wikipedia…</div></div>`;
     sb.innerHTML = h;
-    $$('[data-sv]', sb).forEach(b => b.onclick = () => { const x = sv[+b.dataset.sv]; closeSearch(false, () => { if (x[0] === 'graph') { store.set('graphs', [x[1], '', '']); goTab('lab', { tool: 'graph' }); } else goTab('solve', { mode: x[0], pre: { e: x[1], a: x[2], b: x[3] } }); }); });
+    $$('[data-sv]', sb).forEach(b => b.onclick = () => { const x = sv[+b.dataset.sv]; closeSearch(false, () => { if (x[0] === 'graph') { store.set('graphs', [x[1], '', '']); goTab('lab', { tool: 'graph' }); } else goTab('solve', { mode: x[0], pre: x[0] === 'alg' ? { e: x[1], op: x[2] } : { e: x[1], a: x[2], b: x[3] } }); }); });
     $$('[data-l]', sb).forEach(b => b.onclick = () => closeSearch(false, () => push('lesson', { id: b.dataset.l })));
     clearTimeout(wt);
     wt = setTimeout(async () => {
